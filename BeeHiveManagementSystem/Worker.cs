@@ -8,10 +8,24 @@ namespace BeeHiveManagementSystem
 {
     class Worker
     {
-        public string CurrentJob { get; }
-        public int ShiftsLeft { get; }
+        public string CurrentJob
+        {
+            get
+            {
+                return currentJob;
+            }
+        }
+
+        public int ShiftsLeft
+        {
+            get
+            {
+                return shiftsToWork - shiftsWorked;
+            }
+        }
 
         private string[] jobsICanDo;
+        private string currentJob = "";
         private int shiftsToWork;
         private int shiftsWorked;
 
@@ -20,18 +34,34 @@ namespace BeeHiveManagementSystem
             this.jobsICanDo = jobsICanDo;
         }
 
-        public bool DoThisJob(bool IsFree)
+        public bool DoThisJob(string job, int numOfShifts)
         {
-            if (IsFree)
-                return true;
-            else
+            if (!string.IsNullOrEmpty(currentJob))
                 return false;
+            for(int i = 0; i < jobsICanDo.Length; i++)
+                if(jobsICanDo[i] == job)
+                {
+                    currentJob = job;
+                    this.shiftsToWork = numOfShifts;
+                    shiftsWorked = 0;
+                    return true;
+                }
+            return false;
         }
 
-        public bool DidYouFinish(bool IsDone)
+        public bool DidYouFinish()
         {
-            if (IsDone)
+            if (string.IsNullOrEmpty(currentJob))
+                return false;
+
+            shiftsWorked++;
+            if(shiftsWorked > shiftsToWork)
+            {
+                shiftsWorked = 0;
+                shiftsToWork = 0;
+                currentJob = "";
                 return true;
+            }
             else
                 return false;
         }
