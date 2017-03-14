@@ -53,5 +53,10 @@ namespace BeeHiveManagementSystem
 
             return report;
         }
+
+        private void DefendTheHive(IStingPatrol patroller)
+        {
+
+        }
     }
 }
