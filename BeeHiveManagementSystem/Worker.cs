@@ -24,6 +24,22 @@ namespace BeeHiveManagementSystem
             }
         }
 
+        public string Job
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public int ShiftsLength
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         private string[] jobsICanDo;
         private string currentJob = "";
         private int shiftsToWork;
@@ -34,7 +50,7 @@ namespace BeeHiveManagementSystem
         {
             this.jobsICanDo = jobsICanDo;
         }
-
+        
         public override double HoneyConsumptionRate()
         {
             double consumption = base.HoneyConsumptionRate();
@@ -72,6 +88,16 @@ namespace BeeHiveManagementSystem
             }
             else
                 return false;
+        }
+
+        public void DoTHisJob(string job, int shifts)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void WorkOneSHift()
+        {
+            throw new NotImplementedException();
         }
     }
 }

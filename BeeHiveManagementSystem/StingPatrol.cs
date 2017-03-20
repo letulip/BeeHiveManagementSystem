@@ -20,12 +20,12 @@ namespace BeeHiveManagementSystem
 
         public bool SharpenStinger(int Length)
         {
-
+            throw new NotImplementedException();
         }
 
         public bool LookForEnemies()
         {
-
+            throw new NotImplementedException();
         }
 
         public void Sting(string Enemy)

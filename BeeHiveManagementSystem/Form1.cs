@@ -24,6 +24,9 @@ namespace BeeHiveManagementSystem
             workers[2] = new Worker(new string[] { "Hive maintenance", "Sting patrol" }, 149);
             workers[3] = new Worker(new string[] { "Nectar collector", "Honey manufacturing", "Egg care", "Baby bee tutoring", "Hive maintenance", "Sting patrol" }, 155);
 
+            IWorker[] bees = new IWorker[8];
+            bees[0] = new Worker();
+
             queen = new Queen(workers, 275);
         }
 
